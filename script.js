@@ -24,23 +24,6 @@ if (floatingWa) {
   });
 }
 
-// Katalog card "Tambah ke Keranjang" interaction
-const addButtons = document.querySelectorAll(".btn-tambah");
-
-addButtons.forEach((btn) => {
-  btn.addEventListener("click", function () {
-    const originalText = this.textContent;
-    this.textContent = "Ditambahkan!";
-    this.style.background = "#22c55e";
-    this.style.color = "white";
-
-    setTimeout(() => {
-      this.textContent = originalText;
-      this.style.background = "";
-      this.style.color = "";
-    }, 2000);
-  });
-});
 
 // Navbar shadow on scroll
 const navbar = document.querySelector(".navbar");

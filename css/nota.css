@@ -7,6 +7,11 @@
  */
 
 * {
+
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -153,7 +158,7 @@ body {
   background: var(--green-wa);
   color: var(--white);
   padding: 0.6rem 1.2rem;
-  border-radius: 25px;
+  border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.85rem;
@@ -167,12 +172,8 @@ body {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding: 180px 2rem 100px;
-  background: linear-gradient(
-    135deg,
-    var(--off-white) 0%,
-    var(--light-bg) 100%
-  );
+  padding: 160px 2rem 80px;
+  background: var(--off-white);
   margin-top: 80px;
   position: relative;
   overflow: hidden;
@@ -183,8 +184,8 @@ body {
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
   align-items: center;
 }
 
@@ -193,7 +194,7 @@ body {
   font-weight: 800;
   color: var(--navy);
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .hero-content h1 span {
@@ -202,10 +203,11 @@ body {
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--gray);
   margin-bottom: 2rem;
   max-width: 500px;
+  line-height: 1.6;
 }
 
 .badge {
@@ -224,7 +226,7 @@ body {
 .hero-cta .btn {
   display: inline-block;
   padding: 0.8rem 1.8rem;
-  border-radius: 30px;
+  border-radius: 12px;
   font-weight: 600;
   font-size: 0.9rem;
   margin-right: 1rem;
@@ -259,23 +261,15 @@ body {
 .hero-img {
   position: relative;
   min-height: 450px;
-  background: linear-gradient(
-    135deg,
-    var(--light-bg) 0%,
-    var(--off-white) 100%
-  );
-  border-radius: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .hero-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 24px;
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+  border-radius: 16px;
   transition: var(--transition-fast);
 }
 
@@ -339,7 +333,7 @@ body {
   padding: 1rem 2.5rem;
   background: var(--green-wa);
   color: var(--white);
-  border-radius: 30px;
+  border-radius: 12px;
   font-weight: 700;
   font-size: 1.1rem;
   text-decoration: none;
@@ -354,7 +348,7 @@ body {
 
 /* ---------- Product Showcase ---------- */
 .produk-showcase {
-  padding: 100px 2rem;
+  padding: 80px 2rem;
   background: var(--off-white);
 }
 
@@ -366,7 +360,7 @@ body {
 
 .section-title {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .section-title h2 {
@@ -382,29 +376,37 @@ body {
   margin: 0 auto;
 }
 
+.produk-kondisi .section-title h2 {
+  color: var(--white);
+}
+
+.produk-kondisi .section-title p {
+  color: var(--gray);
+}
+
 .showcase-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .showcase-card {
   background: var(--white);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
   transition: var(--transition);
   border: 1px solid var(--light-bg);
 }
 
 .showcase-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .showcase-img {
-  height: 250px;
+  height: 280px;
   background: var(--light-bg);
   position: relative;
   overflow: hidden;
@@ -415,37 +417,51 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: var(--transition);
+}
+
+.showcase-card:hover .showcase-img img {
+  transform: scale(1.03);
 }
 
 .showcase-info {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .showcase-info h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--navy);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 
 .showcase-info .kondisi {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.8rem;
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1;
 }
 
 .kondisi.baru {
+  background: rgba(16, 185, 129, 0.1);
   color: var(--green-wa);
 }
 
 .kondisi.bekas {
+  background: rgba(249, 115, 22, 0.1);
   color: var(--orange);
 }
 
 /* ---------- Produk Baru vs Bekas ---------- */
 .produk-kondisi {
-  padding: 100px 2rem;
-  background: var(--navy-light);
+  padding: 80px 2rem;
+  background: var(--navy);
 }
 
 .produk-kondisi .container {
@@ -458,12 +474,12 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .kondisi-card {
-  padding: 3rem 2rem;
-  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
   text-align: center;
   transition: var(--transition);
 }
@@ -475,38 +491,31 @@ body {
 
 .kondisi-card.baru:hover {
   transform: translateY(-4px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.kondisi-card.baru .kondisi-badge {
-  font-size: 3rem;
-  opacity: 0.1;
-  margin-bottom: 1rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .kondisi-card.bekas {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: var(--navy-light);
   color: var(--white);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .kondisi-card.bekas:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-.kondisi-card.bekas .kondisi-badge {
-  font-size: 3rem;
-  opacity: 0.1;
-  margin-bottom: 1rem;
-}
 
 .kondisi-badge {
   display: inline-block;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+  vertical-align: middle;
   line-height: 1;
 }
 
@@ -522,34 +531,49 @@ body {
 
 .kondisi-card h3 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
-.kondisi-card p {
+.kondisi-card.baru h3 {
+  color: var(--navy);
+}
+
+.kondisi-card.bekas h3 {
+  color: var(--white);
+}
+
+.kondisi-card.baru p {
   color: var(--gray);
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }
 
-.kondisi-card .btn btn-small {
+.kondisi-card.bekas p {
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.kondisi-card .btn-small {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   background: var(--orange);
   color: var(--white);
-  border-radius: 25px;
-  font-size: 0.9rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
   transition: var(--transition);
 }
 
-.kondisi-card .btn:hover {
+.kondisi-card .btn-small:hover {
   background: #ea580c;
+  transform: translateY(-2px);
 }
 
 /* ---------- Keunggulan Toko ---------- */
 .keunggulan {
-  padding: 100px 2rem;
+  padding: 80px 2rem;
   background: var(--off-white);
 }
 
@@ -561,38 +585,86 @@ body {
 
 .keunggulan-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .keunggulan-card {
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.75rem;
   background: var(--white);
-  border-radius: 20px;
+  border-radius: 16px;
   text-align: center;
   border: 1px solid var(--light-bg);
   transition: var(--transition);
 }
 
+.keunggulan-card.featured {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .keunggulan-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .keunggulan-icon {
-  font-size: 2.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
-  display: block;
+  background: var(--light-bg);
+  color: var(--navy);
 }
 
 .keunggulan-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.35rem;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.keunggulan-card p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.keunggulan-card .btn-small {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.keunggulan-card .btn-small:hover {
+  background: #ea580c;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .keunggulan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .keunggulan-card.featured {
+    grid-row: auto;
+  }
 }
 
 .promo {
-  padding: 100px 2rem;
+  padding: 80px 2rem;
   background: var(--off-white);
 }
 
@@ -604,7 +676,7 @@ body {
 
 .section-title {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .section-title h2 {
@@ -624,13 +696,13 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .promo-card {
   background: var(--white);
-  border-radius: 20px;
-  padding: 2rem;
+  border-radius: 16px;
+  padding: 1.75rem;
   text-align: center;
   border: 1px solid var(--light-bg);
   transition: var(--transition);
@@ -668,43 +740,84 @@ body {
 
 /* ---------- Lokasi ---------- */
 .lokasi {
-  padding: 100px 2rem;
-  background: var(--navy-light);
+  padding: 80px 2rem;
+  background: var(--navy);
 }
 
 .lokasi .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  text-align: center;
 }
 
-.lokasi-content {
-  margin-top: 2rem;
-}
-
-.lokasi-content p {
-  color: var(--slate);
-  margin-bottom: 0.5rem;
-}
-
-.lokasi-content p strong {
+.lokasi .section-title h2 {
   color: var(--white);
 }
 
+.lokasi .section-title p {
+  color: var(--gray);
+}
+
+.lokasi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2.5rem;
+  align-items: start;
+}
+
+.lokasi-info h3 {
+  font-size: 1.75rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.lokasi-info address {
+  font-style: normal;
+  color: var(--white);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.jam-buka {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.lokasi-note {
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
 .lokasi-maps {
-  width: 100%;
-  max-width: 900px;
-  height: 420px;
-  margin: 2rem auto;
-  overflow: hidden;
+  height: 450px;
   border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .lokasi-maps iframe {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+@media (max-width: 768px) {
+  .lokasi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lokasi-maps {
+    height: 350px;
+  }
 }
 
 /* ---------- Akhir CTA ---------- */
